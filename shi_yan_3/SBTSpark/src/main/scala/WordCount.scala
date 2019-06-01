@@ -9,8 +9,8 @@ object WordCount {
     Logger.getLogger("org.apache.spark").setLevel(Level.WARN)
     Logger.getLogger("org.eclipse.jetty.server").setLevel(Level.OFF)
 
-    val inputFile = "file:///home/prime/Documents/SparkData/1/*.txt"
-    val outputFile = "/home/prime/Documents/SparkData/1/C.txt"
+    val inputFile = "file:///home/prime/Documents/Spark/spark_code/shi_yan_3/SparkSparkData/1/*.txt"
+    val outputFile = "/home/prime/Documents/Spark/spark_code/shi_yan_3/SparkData/1/C.txt"
 
     val conf = new SparkConf().setAppName("WordCount").setMaster("local[*]")
     val pw = new PrintWriter(outputFile)
