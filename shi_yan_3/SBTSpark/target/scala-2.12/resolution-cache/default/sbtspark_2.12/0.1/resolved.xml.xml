@@ -4,7 +4,7 @@
 		module="sbtspark_2.12"
 		revision="0.1"
 		status="integration"
-		publication="20190531192450"
+		publication="20190602162334"
 	>
 		<description>
 		SBTSpark
@@ -34,5 +34,6 @@
 		<dependency org="org.scala-lang" name="scala-library" rev="2.12.8" conf="scala-tool->default,optional(default);compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-core_2.12" rev="2.4.3" conf="compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-sql_2.12" rev="2.4.3" conf="compile->default(compile)"/>
+		<dependency org="org.mariadb.jdbc" name="mariadb-java-client" rev="2.4.1" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>
