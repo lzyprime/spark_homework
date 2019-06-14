@@ -7,7 +7,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat
 
 
-class UserMapper extends Mapper[LongWritable, Text, Text, IntWritable]{
+class UserMapper extends Mapper[LongWritable, Text, Text, IntWritable] {
 
   @throws[IOException]
   override def map(key: LongWritable, value: Text, context: Mapper[LongWritable, Text, Text, IntWritable]#Context): Unit = {
@@ -16,7 +16,9 @@ class UserMapper extends Mapper[LongWritable, Text, Text, IntWritable]{
 }
 
 class UserReducer extends Reducer[Text, IntWritable, Text, IntWritable] {
+
   import scala.collection.JavaConverters._
+
   @throws[IOException]
   override def reduce(key: Text, values: java.lang.Iterable[IntWritable], context: Reducer[Text, IntWritable, Text, IntWritable]#Context): Unit = {
     context.write(key, values.asScala.reduce((x1, x2) => new IntWritable(x1.get() + x2.get())))
@@ -25,8 +27,8 @@ class UserReducer extends Reducer[Text, IntWritable, Text, IntWritable] {
 
 object MapReduce {
   def main(args: Array[String]): Unit = {
-    val inputFile = "hdfs://hadoop:9000/user/prime/bigdata/final_user.csv"
-    val outputFile = "hdfs://hadoop:9000/user/prime/bigdata/result"
+    val inputFile = "hdfs://localhost:9000/user/prime/bigdata/final_user.csv"
+    val outputFile = "hdfs://localhost:9000/user/prime/bigdata/result"
 
     val job = Job.getInstance()
     job setJobName "Counter"
